@@ -23,7 +23,7 @@ void Setup(){
 }
 void Draw(){
     system("cls");
-    for (int i = 0; i < width; i++)
+    for (int i = 0; i < width+1; i++)
         cout << "#";
     cout << endl;
 
@@ -36,8 +36,9 @@ void Draw(){
             if(j == width-1)
                 cout << "#";
         }
+        cout << endl;
     }
-    for (int i = 0; i < width; i++)
+    for (int i = 0; i < width+1; i++)
         cout << "#";
     cout << endl;
 }
