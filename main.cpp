@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <conio.h>
 
 using namespace std;
 bool gameOver;
@@ -31,6 +32,10 @@ void Draw(){
         for (int j = 0; j < width; j++){
             if(j == 0)
                 cout << "#";
+            if(i == y && j == x)
+                cout << "O";
+            else if(i == fruitY && j == fruitX)
+                cout << "F";
             else
                 cout << " ";
             if(j == width-1)
@@ -43,8 +48,45 @@ void Draw(){
     cout << endl;
 }
 void Input(){
+    if(_kbhit()){
+        switch (_getch())
+       {
+       case 'a':
+               dir = LEFT;
+            break;
+       case 'd':
+               dir = RIGHT;
+               break;
+       case 'w':
+               dir = UP;
+               break;
+       case 's':
+               dir = RIGHT;
+               break;
+       case 'x':
+        gameOver = true;
+        break;
+       }
+    }
 }
 void Logic(){
+      switch (dir)
+       {
+       case LEFT:
+            x--;
+            break;
+       case RIGHT:
+            x++;
+            break;
+       case UP:
+            y--;
+            break;
+       case DOWN:
+            y++;
+            break;
+       default:
+            break;
+       }
 }
 int main()
 {
